@@ -4,16 +4,17 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
+from django.contrib import auth
 
-from .models import Movie, Category, Actor, Genre, Rating, Reviews
+from .models import Movie, Category, Actor, Rating, Reviews
 from .forms import ReviewForm, RatingForm
 
 
 class GenreYear:
     """Жанры и года выхода фильмов"""
 
-    def get_genres(self):
-        return Genre.objects.all()
+    # def get_genres(self):
+    #     return Genre.objects.all()
 
     def get_years(self):
         return Movie.objects.filter(draft=False).values("year")
