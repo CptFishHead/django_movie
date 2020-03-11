@@ -40,7 +40,7 @@ class MovieAdmin(admin.ModelAdmin):
     readonly_fields = ("get_image",)
     fieldsets = (
         (None, {
-            "fields": (("title"),)
+            "fields": (("title"), "category")
         }),
         (None, {
             "fields": ("description", ("poster", "get_image"))
